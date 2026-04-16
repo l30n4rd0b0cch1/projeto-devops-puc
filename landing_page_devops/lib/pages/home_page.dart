@@ -11,13 +11,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _tab = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  void _changeTab() => setState(() => _tab = _tab == 0 ? 1 : 0);
 
   @override
   Widget build(BuildContext context) {
@@ -28,21 +24,35 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: .center,
+          mainAxisAlignment: .start,
           children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: _changeTab,
+                    child: Text('Home', style: _getStyle(bold: _tab == 0)),
+                  ),
+                ),
+                Expanded(
+                  child: TextButton(
+                    onPressed: _changeTab,
+                    child: Text('Sobre', style: _getStyle(bold: _tab == 1)),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const PhosphorIcon(PhosphorIconsDuotone.plus),
-      ),
+    );
+  }
+
+  TextStyle _getStyle({bool bold = false}) {
+    return TextStyle(
+      fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+      fontSize: 25,
     );
   }
 }
