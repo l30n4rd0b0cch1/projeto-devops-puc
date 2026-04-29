@@ -156,7 +156,7 @@ class _CourtCardState extends State<_CourtCard> {
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(_isHovered ? 0.1 : 0.05),
+              color: Colors.black.withValues(alpha: _isHovered ? 0.1 : 0.05),
               blurRadius: _isHovered ? 30 : 15,
               offset: Offset(0, _isHovered ? 15 : 5),
             )

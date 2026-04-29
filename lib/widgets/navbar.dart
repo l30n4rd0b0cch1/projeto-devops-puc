@@ -13,11 +13,11 @@ class Navbar extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       height: 80,
       decoration: BoxDecoration(
-        color: isScrolled ? Colors.white.withOpacity(0.95) : Colors.transparent,
+        color: isScrolled ? Colors.white.withValues(alpha: 0.95) : Colors.transparent,
         boxShadow: isScrolled
             ? [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+                  color: Colors.black.withValues(alpha: 0.05),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 )
