@@ -8,7 +8,7 @@ class ContactFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFF111111), // Dark sleek footer
+      color: const Color(0xFF111111),
       padding: const EdgeInsets.only(top: 80, bottom: 40),
       child: Center(
         child: ConstrainedBox(
