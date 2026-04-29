@@ -32,3 +32,13 @@ jobs:
 
       - name: Build web
         run: flutter build web
+
+      - name: Discord Notification
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: |
+            🚀 Workflow executado!
+            Status: ${{ job.status }}
+            Repositório: ${{ github.repository }}
